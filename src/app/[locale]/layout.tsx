@@ -3,7 +3,7 @@ import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { ReactNode } from 'react';
-import { DM_Sans, Noto_Sans_Arabic } from 'next/font/google';
+import { DM_Sans, Noto_Sans_Arabic, IBM_Plex_Mono } from 'next/font/google';
 import '@/app/globals.css';
 
 const dmSans = DM_Sans({
@@ -15,6 +15,13 @@ const dmSans = DM_Sans({
 const notoSansArabic = Noto_Sans_Arabic({
     subsets: ['arabic'],
     variable: '--font-noto-sans',
+    display: 'swap',
+});
+
+const ibmPlexMono = IBM_Plex_Mono({
+    subsets: ['latin'],
+    weight: ['400', '500', '600', '700'],
+    variable: '--font-ibm-mono',
     display: 'swap',
 });
 
@@ -39,7 +46,7 @@ export default async function LocaleLayout({
     const messages = await getMessages();
 
     return (
-        <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'} className={`${dmSans.variable} ${notoSansArabic.variable}`}>
+        <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'} className={`${dmSans.variable} ${notoSansArabic.variable} ${ibmPlexMono.variable}`}>
             <body>
                 <NextIntlClientProvider messages={messages}>
                     {children}

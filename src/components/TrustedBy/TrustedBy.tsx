@@ -1,5 +1,8 @@
+'use client';
+
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import styles from './TrustedBy.module.css';
 
 export default function TrustedBy() {
@@ -21,7 +24,13 @@ export default function TrustedBy() {
 
     return (
         <section className={styles.section}>
-            <div className={styles.container}>
+            <motion.div
+                className={styles.container}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+            >
                 <p className={styles.label}>{t('title')}</p>
                 <div className={styles.marquee}>
                     <div className={styles.track}>
@@ -39,7 +48,7 @@ export default function TrustedBy() {
                         ))}
                     </div>
                 </div>
-            </div>
+            </motion.div>
         </section>
     );
 }
