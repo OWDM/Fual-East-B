@@ -1,4 +1,7 @@
+'use client';
+
 import { useTranslations } from 'next-intl';
+import { motion } from 'framer-motion';
 import styles from './Contact.module.css';
 
 export default function Contact() {
@@ -6,7 +9,13 @@ export default function Contact() {
 
     return (
         <section id="contact" className={styles.section}>
-            <div className={styles.container}>
+            <motion.div
+                className={styles.container}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+            >
                 <h2>{t('title')}</h2>
                 <div className={styles.grid}>
                     <div className={styles.info}>
@@ -56,7 +65,7 @@ export default function Contact() {
                         </button>
                     </form>
                 </div>
-            </div>
+            </motion.div>
         </section>
     );
 }

@@ -18,6 +18,26 @@
     "TrustedBy": {
         "title": "Trusted by"
     },
+    "Services": {
+        "title": "Our Services",
+        "subtitle": "Comprehensive solutions tailored to your business needs.",
+        "service1Title": "Fuel Supply",
+        "service1Desc": "Reliable and efficient fuel distribution across the region.",
+        "service2Title": "Logistics",
+        "service2Desc": "State-of-the-art transportation and logistics network.",
+        "service3Title": "Consultancy",
+        "service3Desc": "Expert advice to optimize your energy consumption and costs.",
+        "service4Title": "Storage Solutions",
+        "service4Desc": "Secure and compliant fuel storage facilities."
+    },
+    "About": {
+        "title": "About Fuel East",
+        "description": "Fuel East is a leading provider of energy solutions, dedicated to powering the growth of businesses across the region. With a commitment to reliability, safety, and innovation, we ensure that your operations never stop.",
+        "stat1": "Years Experience",
+        "stat2": "Products Producing",
+        "stat3": "Happy Clients",
+        "stat4": "Projects Done"
+    },
     "Contact": {
         "title": "Contact Us",
         "infoTitle": "Get in Touch",
