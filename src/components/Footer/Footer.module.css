@@ -1,0 +1,118 @@
+.footer {
+    background-color: var(--primary);
+    /* Deep black/dark background */
+    color: white;
+    padding: 4rem 0 2rem;
+    font-family: var(--font-main);
+}
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.topSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.logoImage {
+    opacity: 0.9;
+}
+
+.socials {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.socialLink {
+    color: #a1a1aa;
+    /* Light gray */
+    transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.socialLink:hover {
+    color: white;
+}
+
+.divider {
+    height: 1px;
+    background-color: #27272a;
+    /* Dark gray divider */
+    width: 100%;
+    margin: 2rem 0;
+}
+
+.bottomSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row-reverse;
+    /* Links on right, copyright on left (LTR) */
+}
+
+[dir="rtl"] .bottomSection {
+    flex-direction: row-reverse;
+    /* In RTL, this keeps links on Left and Copyright on Right? No. */
+    /* 
+       LTR: row-reverse -> Links (Right), Copyright (Left)
+       RTL: row-reverse -> Links (Left), Copyright (Right)
+       Wait, row-reverse in RTL swaps visual order? 
+       Let's stick to explicit order or just normal flex with justify-between.
+    */
+    flex-direction: row-reverse;
+}
+
+/* Actually, let's just use normal flex and order if needed, or just let justify-between handle it.
+   Goal: Links on Right, Copyright on Left (in LTR).
+   HTML Order: Links, Copyright.
+   Flex: row-reverse -> Copyright (Left), Links (Right). 
+*/
+
+.links {
+    display: flex;
+    gap: 2rem;
+}
+
+.links a {
+    color: #a1a1aa;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+    text-decoration: none;
+}
+
+.links a:hover {
+    color: white;
+}
+
+.copyright {
+    color: #52525b;
+    /* Darker gray for copyright */
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .topSection {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .bottomSection {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+
+    .links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+}

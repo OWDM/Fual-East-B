@@ -1,0 +1,187 @@
+.navbar {
+    position: sticky;
+    top: 1.5rem;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    padding: 0 1rem;
+    pointer-events: none;
+}
+
+.container {
+    pointer-events: auto;
+    width: 100%;
+    max-width: 900px;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    border-radius: 100px;
+    padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 8px 30px -6px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    /* Remove padding/gap since image handles it */
+}
+
+.logoImage {
+    object-fit: contain;
+    /* Adjust based on actual logo aspect ratio */
+}
+
+.links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.links a {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #64748b;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.links a:hover {
+    color: #0f172a;
+}
+
+.switcherLink {
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #64748b;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.2s ease;
+    outline: none;
+}
+
+.switcherLink:hover {
+    color: #0f172a;
+}
+
+/* Contact Button (CTA) */
+.cta {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    padding: 6px 6px 6px 20px !important;
+    border-radius: 100px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: background-color 0.2s ease;
+    text-decoration: none;
+}
+
+.cta:hover {
+    background-color: #222222 !important;
+}
+
+/* Fixed White Circle */
+.arrowIcon {
+    width: 28px;
+    height: 28px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000000;
+    font-size: 13.5px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* The Arrow Character */
+.arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+/* Shoot Animation */
+@keyframes shootArrow {
+    0% {
+        transform: translateX(0);
+    }
+
+    40% {
+        transform: translateX(150%);
+        opacity: 0;
+    }
+
+    50% {
+        transform: translateX(-150%);
+        opacity: 0;
+    }
+
+    60% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.cta:hover .arrow {
+    animation: shootArrow 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+[dir="rtl"] .container {
+    padding: 0.5rem 1.5rem 0.5rem 0.5rem;
+}
+
+[dir="rtl"] .cta {
+    padding: 6px 20px 6px 6px !important;
+}
+
+/* RTL Animation Mirroring */
+@keyframes shootArrowRtl {
+    0% {
+        transform: translateX(0) rotate(180deg);
+    }
+
+    40% {
+        transform: translateX(-150%) rotate(180deg);
+        opacity: 0;
+    }
+
+    50% {
+        transform: translateX(150%) rotate(180deg);
+        opacity: 0;
+    }
+
+    60% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(0) rotate(180deg);
+    }
+}
+
+[dir="rtl"] .arrow {
+    transform: rotate(180deg);
+}
+
+[dir="rtl"] .cta:hover .arrow {
+    animation: shootArrowRtl 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@media (max-width: 768px) {
+    .links {
+        display: none;
+    }
+}

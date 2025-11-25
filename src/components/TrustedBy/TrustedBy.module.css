@@ -1,0 +1,93 @@
+.section {
+    padding: 3rem 0;
+    background-color: white;
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    /* Constrain width to match other content */
+    margin: 0 auto;
+    padding: 0 1rem;
+    text-align: center;
+}
+
+.label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #64748b;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.marquee {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    /* Optional: Keep mask for fade effect at edges, or remove if user dislikes "spaces" interpreted as fading */
+    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+
+.track {
+    display: flex;
+    gap: 2rem;
+    /* Tighter spacing */
+    width: max-content;
+    animation: scroll 40s linear infinite;
+    /* Slightly faster for the tighter loop */
+}
+
+.logoItem {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Removed grayscale and opacity */
+    transition: none;
+    /* No hover effects */
+    padding: 0 1rem;
+    /* Add padding inside the item instead of huge gaps */
+}
+
+.logoItem:hover {
+    /* No hover effects */
+    transform: none;
+    filter: none;
+    opacity: 1;
+}
+
+.imageWrapper {
+    position: relative;
+    width: 110px;
+    /* Smaller width */
+    height: 45px;
+    /* Slimmer height */
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+[dir="rtl"] .track {
+    animation: scrollRtl 60s linear infinite;
+}
+
+@keyframes scrollRtl {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(50%);
+    }
+}
