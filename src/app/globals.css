@@ -1,50 +1,48 @@
 :root {
-  /* Modern Corporate Palette */
-  --primary: #09090b;
-  /* Zinc 950 - Neutral Black */
-  --primary-light: #27272a;
-  /* Zinc 800 - Neutral Dark Gray */
-  --accent: #CC5955;
-  /* Brand Orange/Red */
-  --accent-hover: #b84a46;
-  /* Darker shade */
-  --accent-gradient: linear-gradient(135deg, #CC5955 0%, #e86a66 100%);
-  /* Brand Gradient */
-
-  --background: #ffffff;
-  --surface: #f8fafc;
-  /* Slate 50 */
-  --surface-hover: #f1f5f9;
-  /* Slate 100 */
-
-  --text-main: #0f172a;
-  --text-secondary: #64748b;
-  /* Slate 500 */
-  --text-light: #94a3b8;
-  /* Slate 400 */
-
-  --border: #e2e8f0;
-  /* Slate 200 */
-
-  --font-main: var(--font-dm-sans), sans-serif;
+  /* Nasty Modern Palette */
+  --primary: #050505; /* Almost Black */
+  --primary-light: #121212; /* Dark Gray Surface */
+  
+  --accent: #ff3333; /* Neon Red */
+  --accent-hover: #cc0000;
+  --accent-glow: 0 0 20px rgba(255, 51, 51, 0.5);
+  
+  --accent-secondary: #ff4d00; /* Neon Orange */
+  
+  --accent-gradient: linear-gradient(135deg, #ff3333 0%, #ff4d00 100%);
+  
+  --background: #000000;
+  --surface: #0a0a0a;
+  --surface-hover: #171717;
+  
+  --text-main: #ffffff;
+  --text-secondary: #a1a1aa; /* Zinc 400 */
+  --text-light: #52525b; /* Zinc 600 */
+  
+  --border: #27272a; /* Zinc 800 */
+  --border-neon: #ff3333;
+  
+  --font-main: var(--font-inter), sans-serif;
+  --font-display: var(--font-outfit), sans-serif;
   --font-mono: var(--font-ibm-mono), monospace;
-
-  --max-width: 1280px;
-  --radius: 12px;
-  --radius-lg: 24px;
-
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  
+  --max-width: 1400px; /* Wider for impact */
+  --radius: 0px; /* Sharp edges for "nasty" look */
+  --radius-lg: 4px;
+  
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.5);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.5), 0 2px 4px -2px rgb(0 0 0 / 0.5);
+  --shadow-neon: 0 0 15px rgba(255, 51, 51, 0.3);
 }
 
 [dir="rtl"] {
   --font-main: var(--font-noto-sans), sans-serif;
+  --font-display: var(--font-noto-sans), sans-serif; /* Fallback for Arabic */
 }
 
 html {
   scroll-behavior: smooth;
+  background: var(--background);
 }
 
 * {
@@ -62,36 +60,35 @@ body {
   overflow-x: hidden;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
   line-height: 1.1;
-  font-weight: 700;
+  font-weight: 800; /* Bolder */
   margin-top: 0;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
+  text-transform: uppercase; /* Aggressive */
 }
 
 a {
   color: inherit;
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
-button,
-input,
-textarea,
-select {
+a:hover {
+  color: var(--accent);
+}
+
+button, input, textarea, select {
   font-family: inherit;
 }
 
 /* Utility Classes */
-.glass {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+.glass-panel {
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .text-gradient {
@@ -99,4 +96,35 @@ select {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.text-glow {
+  text-shadow: 0 0 20px rgba(255, 51, 51, 0.5);
+}
+
+.border-neon {
+  border: 1px solid var(--accent);
+  box-shadow: 0 0 10px rgba(255, 51, 51, 0.2);
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.6s ease-out forwards;
+}
+
+.container-width {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
 }

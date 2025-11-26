@@ -1,44 +1,44 @@
 .section {
-    padding: 3rem 0;
-    background-color: white;
-    border-bottom: 1px solid var(--border);
+    padding: 4rem 0;
+    background-color: #000000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     overflow: hidden;
+    position: relative;
 }
 
 .container {
     width: 100%;
-    max-width: 900px;
-    /* Constrain width to match other content */
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 2rem;
     text-align: center;
 }
 
 .label {
-    font-size: 0.85rem;
+    font-family: var(--font-mono);
+    font-size: 1rem;
     font-weight: 600;
-    color: #64748b;
-    margin-bottom: 2rem;
+    color: var(--accent);
+    margin-bottom: 3rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.2em;
+    text-shadow: 0 0 10px rgba(255, 51, 51, 0.4);
 }
 
 .marquee {
     position: relative;
     width: 100%;
     overflow: hidden;
-    /* Optional: Keep mask for fade effect at edges, or remove if user dislikes "spaces" interpreted as fading */
-    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
 .track {
     display: flex;
-    gap: 2rem;
-    /* Tighter spacing */
+    gap: 4rem;
     width: max-content;
-    animation: scroll 40s linear infinite;
-    /* Slightly faster for the tighter loop */
+    animation: scroll 30s linear infinite;
 }
 
 .logoItem {
@@ -46,26 +46,21 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* Removed grayscale and opacity */
-    transition: none;
-    /* No hover effects */
-    padding: 0 1rem;
-    /* Add padding inside the item instead of huge gaps */
+    filter: grayscale(100%) brightness(10);
+    /* Make logos pure white */
+    opacity: 0.5;
+    transition: all 0.3s ease;
 }
 
 .logoItem:hover {
-    /* No hover effects */
-    transform: none;
-    filter: none;
     opacity: 1;
+    filter: grayscale(100%) brightness(10) drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
 }
 
 .imageWrapper {
     position: relative;
-    width: 110px;
-    /* Smaller width */
-    height: 45px;
-    /* Slimmer height */
+    width: 140px;
+    height: 60px;
 }
 
 @keyframes scroll {
@@ -79,7 +74,7 @@
 }
 
 [dir="rtl"] .track {
-    animation: scrollRtl 60s linear infinite;
+    animation: scrollRtl 30s linear infinite;
 }
 
 @keyframes scrollRtl {

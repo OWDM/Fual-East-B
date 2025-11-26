@@ -18,6 +18,15 @@ export default function Hero() {
             >
                 <h1>{t('title')}</h1>
                 <p>{t('subtitle')}</p>
+
+                <div className={styles.ctaGroup}>
+                    <Link href="#contact" className={styles.primaryCta}>
+                        {t('cta')}
+                    </Link>
+                    <Link href="#about" className={styles.secondaryCta}>
+                        {t('learnMore')}
+                    </Link>
+                </div>
             </motion.div>
         </section>
     );

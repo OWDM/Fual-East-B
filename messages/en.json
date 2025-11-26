@@ -5,56 +5,56 @@
     },
     "Navbar": {
         "home": "Home",
-        "about": "About Us",
-        "services": "Services",
-        "contact": "Contact Us"
-    },
-    "Hero": {
-        "title": "Empowering Your Business Growth",
-        "subtitle": "Leading corporate solutions for the modern enterprise.",
-        "cta": "Contact Us",
-        "learnMore": "Learn More"
-    },
-    "TrustedBy": {
-        "title": "Trusted by"
-    },
-    "Services": {
-        "title": "Our Services",
-        "subtitle": "Comprehensive solutions tailored to your business needs.",
-        "service1Title": "Fuel Supply",
-        "service1Desc": "Reliable and efficient fuel distribution across the region.",
-        "service2Title": "Logistics",
-        "service2Desc": "State-of-the-art transportation and logistics network.",
-        "service3Title": "Consultancy",
-        "service3Desc": "Expert advice to optimize your energy consumption and costs.",
-        "service4Title": "Storage Solutions",
-        "service4Desc": "Secure and compliant fuel storage facilities."
-    },
-    "About": {
-        "title": "About Fuel East",
-        "description": "Fuel East is a leading provider of energy solutions, dedicated to powering the growth of businesses across the region. With a commitment to reliability, safety, and innovation, we ensure that your operations never stop.",
-        "stat1": "Years Experience",
-        "stat2": "Products Producing",
-        "stat3": "Happy Clients",
-        "stat4": "Projects Done"
-    },
-    "Contact": {
-        "title": "Contact Us",
-        "infoTitle": "Get in Touch",
-        "address": "Building N. 2947, Alhamdania, Jeddah 7550, 72361, Unit No. 3, Kingdom of Saudi Arabia",
-        "email": "Info@fueleastsa.com",
-        "phone": "+966 59 586 4433",
-        "name": "Name",
-        "emailLabel": "Email",
-        "message": "Message",
-        "submit": "Send Message",
-        "contact": "Contact us"
-    },
-    "Footer": {
-        "copyright": "© 2025 Fuel East. All rights reserved.",
-        "home": "Home",
         "about": "About",
         "services": "Services",
         "contact": "Contact"
+    },
+    "Hero": {
+        "title": "DOMINATE YOUR ENERGY SECTOR",
+        "subtitle": "We don't just supply fuel. We fuel your empire.",
+        "cta": "GET STARTED",
+        "learnMore": "LEARN MORE"
+    },
+    "TrustedBy": {
+        "title": "POWERING THE GIANTS"
+    },
+    "Services": {
+        "title": "UNLEASH POWER",
+        "subtitle": "Elite solutions for those who demand excellence.",
+        "service1Title": "FUEL SUPPLY",
+        "service1Desc": "Relentless fuel distribution. Anywhere. Anytime.",
+        "service2Title": "LOGISTICS",
+        "service2Desc": "Precision logistics that never sleep.",
+        "service3Title": "CONSULTANCY",
+        "service3Desc": "Strategic dominance for your energy needs.",
+        "service4Title": "STORAGE",
+        "service4Desc": "Fortified storage solutions. Secure. Compliant."
+    },
+    "About": {
+        "title": "WE ARE FUEL EAST",
+        "description": "We are the backbone of your operation. Relentless. Reliable. Ready. We don't accept excuses, and neither should you.",
+        "stat1": "YEARS DOMINATING",
+        "stat2": "PRODUCTS DEPLOYED",
+        "stat3": "SATISFIED GIANTS",
+        "stat4": "MISSIONS COMPLETE"
+    },
+    "Contact": {
+        "title": "LET'S TALK BUSINESS",
+        "infoTitle": "HQ LOCATION",
+        "address": "Building N. 2947, Alhamdania, Jeddah 7550, 72361, Unit No. 3, Kingdom of Saudi Arabia",
+        "email": "Info@fueleastsa.com",
+        "phone": "+966 59 586 4433",
+        "name": "YOUR NAME",
+        "emailLabel": "YOUR EMAIL",
+        "message": "YOUR DEMANDS",
+        "submit": "SEND IT",
+        "contact": "CONTACT"
+    },
+    "Footer": {
+        "copyright": "© 2025 Fuel East. All rights reserved.",
+        "home": "HOME",
+        "about": "ABOUT",
+        "services": "SERVICES",
+        "contact": "CONTACT"
     }
 }
