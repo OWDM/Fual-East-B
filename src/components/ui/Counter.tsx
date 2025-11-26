@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { useLocale } from 'next-intl';
 import { useInView, useMotionValue, useSpring } from 'framer-motion';
 
 interface CounterProps {
@@ -19,6 +20,7 @@ export default function Counter({ value, duration = 2, suffix = '', className }:
         duration: duration * 1000,
     });
     const isInView = useInView(ref, { once: true, margin: "-100px" });
+    const locale = useLocale();
 
     useEffect(() => {
         if (isInView) {
@@ -29,10 +31,11 @@ export default function Counter({ value, duration = 2, suffix = '', className }:
     useEffect(() => {
         return springValue.on("change", (latest) => {
             if (ref.current) {
-                ref.current.textContent = Math.floor(latest).toLocaleString() + suffix;
+                // Format number based on locale
+                ref.current.textContent = Math.floor(latest).toLocaleString(locale) + suffix;
             }
         });
-    }, [springValue, suffix]);
+    }, [springValue, suffix, locale]);
 
     return <span ref={ref} className={className} />;
 }

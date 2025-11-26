@@ -1,60 +1,60 @@
 {
     "HomePage": {
         "title": "Fual East",
-        "subtitle": "Corporate B2B Solutions"
+        "subtitle": "DOMINATE YOUR MARKET"
     },
     "Navbar": {
-        "home": "Home",
-        "about": "About Us",
-        "services": "Services",
-        "contact": "Contact Us"
+        "home": "HQ",
+        "about": "WHO WE ARE",
+        "services": "ARSENAL",
+        "contact": "TALK TO US"
     },
     "Hero": {
-        "title": "Empowering Your Business Growth",
-        "subtitle": "Leading corporate solutions for the modern enterprise.",
-        "cta": "Contact Us",
-        "learnMore": "Learn More"
+        "title": "WE DON'T JUST BUILD. WE DOMINATE.",
+        "subtitle": "AGGRESSIVE GROWTH FOR THE MODERN EMPIRE. NO EXCUSES.",
+        "cta": "START DOMINATING",
+        "learnMore": "SEE THE PROOF"
     },
     "TrustedBy": {
-        "title": "Trusted by"
+        "title": "THEY SURVIVED WITH US"
     },
     "Services": {
-        "title": "Our Services",
-        "subtitle": "Comprehensive solutions tailored to your business needs.",
-        "service1Title": "Fuel Supply",
-        "service1Desc": "Reliable and efficient fuel distribution across the region.",
-        "service2Title": "Logistics",
-        "service2Desc": "State-of-the-art transportation and logistics network.",
-        "service3Title": "Consultancy",
-        "service3Desc": "Expert advice to optimize your energy consumption and costs.",
-        "service4Title": "Storage Solutions",
-        "service4Desc": "Secure and compliant fuel storage facilities."
+        "title": "OUR ARSENAL",
+        "subtitle": "WEAPONS FOR MASSIVE SCALING.",
+        "service1Title": "UNLIMITED POWER",
+        "service1Desc": "Relentless fuel distribution. We keep the lights on while others fade.",
+        "service2Title": "GLOBAL DOMINATION",
+        "service2Desc": "Logistics that defy limits. We move mountains, literally.",
+        "service3Title": "WAR ROOM STRATEGY",
+        "service3Desc": "Consultancy that kills the competition. Optimize or die.",
+        "service4Title": "SECURE VAULTS",
+        "service4Desc": "Storage solutions that are impenetrable. Your assets, locked down."
     },
     "About": {
-        "title": "About Fuel East",
-        "description": "Fuel East is a leading provider of energy solutions, dedicated to powering the growth of businesses across the region. With a commitment to reliability, safety, and innovation, we ensure that your operations never stop.",
-        "stat1": "Years Experience",
-        "stat2": "Products Producing",
-        "stat3": "Happy Clients",
-        "stat4": "Projects Done"
+        "title": "WE ARE FUAL EAST",
+        "description": "We don't play safe. We push boundaries. We are the fuel that ignites your explosive growth. While others hesitate, we execute.",
+        "stat1": "YEARS DOMINATING",
+        "stat2": "PRODUCTS LAUNCHED",
+        "stat3": "EMPIRES BUILT",
+        "stat4": "PROJECTS CRUSHED"
     },
     "Contact": {
-        "title": "Contact Us",
-        "infoTitle": "Get in Touch",
+        "title": "MAKE YOUR MOVE",
+        "infoTitle": "HEADQUARTERS",
         "address": "Building N. 2947, Alhamdania, Jeddah 7550, 72361, Unit No. 3, Kingdom of Saudi Arabia",
         "email": "Info@fueleastsa.com",
         "phone": "+966 59 586 4433",
-        "name": "Name",
-        "emailLabel": "Email",
-        "message": "Message",
-        "submit": "Send Message",
-        "contact": "Contact us"
+        "name": "YOUR NAME",
+        "emailLabel": "YOUR EMAIL",
+        "message": "YOUR DEMANDS",
+        "submit": "SEND IT",
+        "contact": "TALK TO US"
     },
     "Footer": {
-        "copyright": "© 2025 Fuel East. All rights reserved.",
-        "home": "Home",
-        "about": "About",
-        "services": "Services",
-        "contact": "Contact"
+        "copyright": "© 2025 FUAL EAST. ALL RIGHTS RESERVED.",
+        "home": "HQ",
+        "about": "WHO WE ARE",
+        "services": "ARSENAL",
+        "contact": "TALK TO US"
     }
 }

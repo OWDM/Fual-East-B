@@ -1,28 +1,13 @@
 .section {
     padding: 8rem 0;
-    background-color: var(--surface);
+    background-color: #ffffff;
     position: relative;
     overflow: hidden;
-}
-
-/* Dot pattern background */
-.section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: radial-gradient(var(--text-light) 1px, transparent 1px);
-    background-size: 32px 32px;
-    opacity: 0.15;
-    z-index: 0;
-    mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
-    -webkit-mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+    border-bottom: 4px solid #000000;
 }
 
 .container {
-    max-width: var(--max-width);
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
     display: grid;
@@ -38,17 +23,21 @@
 }
 
 .textColumn h2 {
-    font-size: 3.5rem;
-    color: var(--primary);
+    font-size: clamp(3rem, 6vw, 5rem);
+    color: #000000;
     margin-bottom: 2rem;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
+    letter-spacing: -0.03em;
+    line-height: 0.9;
+    font-weight: 900;
+    text-transform: uppercase;
 }
 
 .description {
-    font-size: 1.15rem;
-    color: var(--text-secondary);
-    line-height: 1.7;
+    font-size: 1.25rem;
+    color: #000000;
+    line-height: 1.5;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
 .statsColumn {
@@ -60,38 +49,38 @@
 .statItem {
     display: flex;
     flex-direction: column;
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(8px);
+    background: #ffffff;
     padding: 2rem;
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--border);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 4px solid #000000;
+    box-shadow: 8px 8px 0px #000000;
+    transition: all 0.2s ease;
 }
 
 .statItem:hover {
-    transform: translateY(-8px);
-    background: #ffffff;
-    box-shadow: var(--shadow-xl);
-    border-color: rgba(204, 89, 85, 0.2);
+    transform: translate(-4px, -4px);
+    background: #000000;
+    box-shadow: 12px 12px 0px var(--primary);
+}
+
+.statItem:hover .statNumber,
+.statItem:hover .statLabel {
+    color: #ffffff;
 }
 
 .statNumber {
-    font-size: 3.5rem;
-    font-weight: 800;
-    background: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-size: 4rem;
+    font-weight: 900;
+    color: #000000;
     line-height: 1;
     margin-bottom: 0.5rem;
-    font-family: var(--font-mono), monospace;
+    font-family: var(--font-outfit), var(--font-noto-sans), sans-serif;
 }
 
 .statLabel {
-    color: var(--text-secondary);
+    color: #000000;
     font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.02em;
+    font-weight: 800;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
 }
 
@@ -102,32 +91,23 @@
 
     .container {
         grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: 4rem;
         text-align: center;
-        padding: 0 1.5rem;
     }
 
-    .textColumn h2 {
-        font-size: 2.5rem;
-        margin-bottom: 1.5rem;
-    }
-
-    .description {
-        font-size: 1rem;
+    .textColumn {
+        text-align: center;
     }
 
     .statsColumn {
-        gap: 1.5rem;
-        justify-items: center;
+        gap: 2rem;
     }
 
     .statItem {
-        width: 100%;
         align-items: center;
-        padding: 1.5rem;
     }
 
     .statNumber {
-        font-size: 2.5rem;
+        font-size: 3rem;
     }
 }

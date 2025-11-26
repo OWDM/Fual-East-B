@@ -31,19 +31,19 @@ export default function About() {
                     transition={{ duration: 0.8 }}
                 >
                     <div className={styles.statItem}>
-                        <Counter value={5} suffix="+" className={styles.statNumber} />
+                        <Counter value={15} suffix="+" className={styles.statNumber} />
                         <span className={styles.statLabel}>{t('stat1')}</span>
                     </div>
                     <div className={styles.statItem}>
-                        <Counter value={99} suffix="+" className={styles.statNumber} />
+                        <Counter value={200} suffix="+" className={styles.statNumber} />
                         <span className={styles.statLabel}>{t('stat2')}</span>
                     </div>
                     <div className={styles.statItem}>
-                        <Counter value={82} suffix="+" className={styles.statNumber} />
+                        <Counter value={500} suffix="+" className={styles.statNumber} />
                         <span className={styles.statLabel}>{t('stat3')}</span>
                     </div>
                     <div className={styles.statItem}>
-                        <Counter value={122} suffix="+" className={styles.statNumber} />
+                        <Counter value={1000} suffix="+" className={styles.statNumber} />
                         <span className={styles.statLabel}>{t('stat4')}</span>
                     </div>
                 </motion.div>

@@ -1,44 +1,61 @@
 .section {
-    padding: 3rem 0;
-    background-color: white;
-    border-bottom: 1px solid var(--border);
+    padding: 4rem 0;
+    background-color: #000000;
+    border-top: 4px solid var(--primary);
+    border-bottom: 4px solid var(--primary);
     overflow: hidden;
+    position: relative;
+}
+
+/* Diagonal stripes overlay */
+.section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: repeating-linear-gradient(45deg,
+            rgba(255, 255, 255, 0.05) 0px,
+            rgba(255, 255, 255, 0.05) 2px,
+            transparent 2px,
+            transparent 10px);
+    pointer-events: none;
 }
 
 .container {
     width: 100%;
-    max-width: 900px;
-    /* Constrain width to match other content */
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 1rem;
     text-align: center;
+    position: relative;
+    z-index: 1;
 }
 
 .label {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #64748b;
-    margin-bottom: 2rem;
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    font-weight: 900;
+    color: #ffffff;
+    margin-bottom: 3rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: -0.02em;
+    line-height: 1;
 }
 
 .marquee {
     position: relative;
     width: 100%;
     overflow: hidden;
-    /* Optional: Keep mask for fade effect at edges, or remove if user dislikes "spaces" interpreted as fading */
-    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
 .track {
     display: flex;
-    gap: 2rem;
-    /* Tighter spacing */
+    gap: 4rem;
     width: max-content;
-    animation: scroll 40s linear infinite;
-    /* Slightly faster for the tighter loop */
+    animation: scroll 30s linear infinite;
 }
 
 .logoItem {
@@ -46,26 +63,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* Removed grayscale and opacity */
-    transition: none;
-    /* No hover effects */
-    padding: 0 1rem;
-    /* Add padding inside the item instead of huge gaps */
+    filter: brightness(0) invert(1);
+    /* Make logos white */
+    opacity: 0.7;
+    transition: all 0.2s ease;
 }
 
 .logoItem:hover {
-    /* No hover effects */
-    transform: none;
-    filter: none;
     opacity: 1;
+    transform: scale(1.1);
+    filter: brightness(0) invert(1) drop-shadow(0 0 5px var(--primary));
 }
 
 .imageWrapper {
     position: relative;
-    width: 110px;
-    /* Smaller width */
-    height: 45px;
-    /* Slimmer height */
+    width: 140px;
+    height: 60px;
 }
 
 @keyframes scroll {
@@ -79,7 +92,7 @@
 }
 
 [dir="rtl"] .track {
-    animation: scrollRtl 60s linear infinite;
+    animation: scrollRtl 30s linear infinite;
 }
 
 @keyframes scrollRtl {

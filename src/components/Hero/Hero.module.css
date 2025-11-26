@@ -1,9 +1,8 @@
 .hero {
     min-height: 90vh;
-    background:
-        radial-gradient(circle at 15% 50%, rgba(204, 89, 85, 0.08), transparent 25%),
-        radial-gradient(circle at 85% 30%, rgba(232, 106, 102, 0.08), transparent 25%),
-        linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    background-color: #ffffff;
+    background-image: radial-gradient(#000000 1.5px, transparent 1.5px);
+    background-size: 40px 40px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -13,97 +12,138 @@
     overflow: hidden;
 }
 
-/* Abstract shapes */
+/* Hard Geometric Shapes */
 .hero::before {
     content: '';
     position: absolute;
-    top: -10%;
-    right: -5%;
-    width: 600px;
-    height: 600px;
-    background: linear-gradient(135deg, rgba(204, 89, 85, 0.1) 0%, rgba(232, 106, 102, 0.05) 100%);
-    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-    filter: blur(60px);
+    top: 15%;
+    left: 10%;
+    width: 120px;
+    height: 120px;
+    background: var(--secondary);
+    border: 4px solid #000000;
+    box-shadow: 12px 12px 0px #000000;
+    animation: float 8s ease-in-out infinite;
     z-index: 0;
-    animation: float 20s infinite alternate;
 }
 
 .hero::after {
     content: '';
     position: absolute;
-    bottom: -10%;
-    left: -5%;
-    width: 500px;
-    height: 500px;
-    background: linear-gradient(135deg, rgba(232, 106, 102, 0.1) 0%, rgba(204, 89, 85, 0.05) 100%);
-    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-    filter: blur(60px);
+    bottom: 20%;
+    right: 10%;
+    width: 150px;
+    height: 150px;
+    background: var(--primary);
+    border: 4px solid #000000;
+    box-shadow: -12px 12px 0px #000000;
+    border-radius: 50%;
+    animation: floatReverse 10s ease-in-out infinite;
     z-index: 0;
-    animation: float 15s infinite alternate-reverse;
 }
 
 @keyframes float {
-    0% {
-        transform: translate(0, 0) rotate(0deg);
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
     }
 
+    50% {
+        transform: translateY(-20px) rotate(10deg);
+    }
+}
+
+@keyframes floatReverse {
+
+    0%,
     100% {
-        transform: translate(30px, 50px) rotate(10deg);
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(20px) scale(1.1);
     }
 }
 
 .content {
-    max-width: 900px;
+    max-width: 1200px;
     position: relative;
     z-index: 1;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+    padding: 3rem;
+    border: 4px solid #000000;
+    box-shadow: 20px 20px 0px #000000;
+    transform: rotate(-1deg);
+    transition: transform 0.3s ease;
+}
+
+.content:hover {
+    transform: rotate(0deg) scale(1.02);
 }
 
 .content h1 {
-    font-size: 5rem;
-    font-weight: 800;
-    margin-bottom: 1.5rem;
-    color: var(--primary);
-    letter-spacing: -0.03em;
-    line-height: 1.1;
-    background: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    padding-bottom: 0.2em;
-    /* Prevent descender clipping */
+    font-size: clamp(3rem, 10vw, 8rem);
+    font-weight: 900;
+    margin-bottom: 1rem;
+    color: #000000;
+    letter-spacing: -0.04em;
+    line-height: 0.85;
+    text-transform: uppercase;
 }
 
 .content p {
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    font-weight: 600;
     margin-bottom: 3rem;
-    color: var(--text-secondary);
-    line-height: 1.6;
-    max-width: 700px;
+    color: #000000;
+    line-height: 1.2;
+    max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+    text-transform: uppercase;
+}
+
+.ctaContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.cta {
+    display: inline-block;
+    background: #000000;
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    padding: 1rem 3rem;
+    text-decoration: none;
+    border: 3px solid #000000;
+    transition: all 0.2s ease;
+    box-shadow: 8px 8px 0px var(--primary);
+}
+
+.cta:hover {
+    background: #ffffff;
+    color: #000000;
+    box-shadow: 12px 12px 0px var(--secondary);
+    transform: translate(-4px, -4px);
 }
 
 @media (max-width: 768px) {
     .hero {
-        padding: 0 1.5rem;
-        min-height: 70vh;
+        padding: 0 1rem;
     }
 
-    .content h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-    }
-
-    .content p {
-        font-size: 1rem;
-        margin-bottom: 2rem;
+    .content {
+        padding: 2rem 1rem;
+        box-shadow: 10px 10px 0px #000000;
     }
 
     .hero::before,
     .hero::after {
-        width: 250px;
-        height: 250px;
-        filter: blur(40px);
-        opacity: 0.5;
+        width: 60px;
+        height: 60px;
     }
 }
