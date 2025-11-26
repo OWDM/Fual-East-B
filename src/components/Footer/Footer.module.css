@@ -1,26 +1,40 @@
 .footer {
     background-color: var(--primary);
-    /* Deep black/dark background */
     color: white;
-    padding: 4rem 0 2rem;
+    padding: 5rem 0 2rem;
     font-family: var(--font-main);
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
 }
 
 .container {
     max-width: var(--max-width);
     margin: 0 auto;
     padding: 0 2rem;
+    position: relative;
+    z-index: 1;
 }
 
 .topSection {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
 
 .logoImage {
-    opacity: 0.9;
+    opacity: 1;
+    filter: brightness(0) invert(1);
 }
 
 .socials {
@@ -29,22 +43,26 @@
 }
 
 .socialLink {
-    color: #a1a1aa;
-    /* Light gray */
-    transition: color 0.2s ease;
+    color: var(--text-light);
+    transition: all 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .socialLink:hover {
     color: white;
+    background: var(--accent);
+    transform: translateY(-2px);
 }
 
 .divider {
     height: 1px;
-    background-color: #27272a;
-    /* Dark gray divider */
+    background-color: rgba(255, 255, 255, 0.1);
     width: 100%;
     margin: 2rem 0;
 }
@@ -54,46 +72,46 @@
     justify-content: space-between;
     align-items: center;
     flex-direction: row-reverse;
-    /* Links on right, copyright on left (LTR) */
 }
 
 [dir="rtl"] .bottomSection {
     flex-direction: row-reverse;
-    /* In RTL, this keeps links on Left and Copyright on Right? No. */
-    /* 
-       LTR: row-reverse -> Links (Right), Copyright (Left)
-       RTL: row-reverse -> Links (Left), Copyright (Right)
-       Wait, row-reverse in RTL swaps visual order? 
-       Let's stick to explicit order or just normal flex with justify-between.
-    */
-    flex-direction: row-reverse;
 }
-
-/* Actually, let's just use normal flex and order if needed, or just let justify-between handle it.
-   Goal: Links on Right, Copyright on Left (in LTR).
-   HTML Order: Links, Copyright.
-   Flex: row-reverse -> Copyright (Left), Links (Right). 
-*/
 
 .links {
     display: flex;
-    gap: 2rem;
+    gap: 2.5rem;
 }
 
 .links a {
-    color: #a1a1aa;
+    color: var(--text-light);
     font-size: 0.95rem;
     transition: color 0.2s ease;
     text-decoration: none;
+    position: relative;
 }
 
 .links a:hover {
     color: white;
 }
 
+.links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+}
+
+.links a:hover::after {
+    width: 100%;
+}
+
 .copyright {
-    color: #52525b;
-    /* Darker gray for copyright */
+    color: rgba(255, 255, 255, 0.4);
     font-size: 0.9rem;
     margin: 0;
 }
@@ -106,7 +124,7 @@
 
     .bottomSection {
         flex-direction: column;
-        gap: 1.5rem;
+        gap: 2rem;
         text-align: center;
     }
 

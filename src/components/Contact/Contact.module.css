@@ -13,10 +13,12 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+    background-image: radial-gradient(var(--text-light) 1px, transparent 1px);
     background-size: 40px 40px;
-    opacity: 0.3;
+    opacity: 0.15;
     z-index: 0;
+    mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
 }
 
 .container {
@@ -30,9 +32,10 @@
 .container h2 {
     text-align: center;
     margin-bottom: 4rem;
-    font-size: 3rem;
+    font-size: 3.5rem;
     color: var(--primary);
     letter-spacing: -0.02em;
+    line-height: 1.1;
 }
 
 .grid {
@@ -46,11 +49,24 @@
     background: linear-gradient(135deg, var(--primary), #1e293b);
     color: white;
     padding: 3rem;
-    border-radius: 24px;
-    box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.3);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
     display: flex;
     flex-direction: column;
     justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.info::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top right, rgba(204, 89, 85, 0.2), transparent 50%);
+    z-index: 0;
 }
 
 .info h3 {
@@ -58,6 +74,8 @@
     margin-bottom: 2.5rem;
     color: white;
     font-weight: 700;
+    position: relative;
+    z-index: 1;
 }
 
 .infoItem {
@@ -65,6 +83,8 @@
     align-items: flex-start;
     gap: 1.5rem;
     margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
 }
 
 .infoItem:last-child {
@@ -72,7 +92,8 @@
 }
 
 .iconWrapper {
-    background-color: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
     width: 48px;
     height: 48px;
     border-radius: 12px;
@@ -81,6 +102,13 @@
     justify-content: center;
     flex-shrink: 0;
     color: var(--accent);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.infoItem:hover .iconWrapper {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
 }
 
 .infoItem p {
@@ -91,12 +119,13 @@
 }
 
 .form {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     padding: 3.5rem;
-    border-radius: 24px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .formGroup {
@@ -121,10 +150,10 @@
 .formGroup textarea {
     width: 100%;
     padding: 1rem 1.25rem;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
     font-size: 1rem;
-    background-color: #f8fafc;
+    background-color: rgba(255, 255, 255, 0.5);
     transition: all 0.2s ease;
     outline: none;
     color: var(--primary);
@@ -134,31 +163,32 @@
 .formGroup textarea:focus {
     border-color: var(--accent);
     background-color: white;
-    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+    box-shadow: 0 0 0 4px rgba(204, 89, 85, 0.1);
 }
 
 .submitBtn {
     width: 100%;
     padding: 8px 8px 8px 32px;
-    background-color: var(--primary);
+    background: var(--primary);
     color: white;
     border: none;
     border-radius: 100px;
     font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     margin-top: 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 12px;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
 }
 
 .submitBtn:hover {
-    background-color: #222222;
-    transform: none;
-    box-shadow: none;
+    background-color: var(--primary-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.25);
 }
 
 .arrowIcon {
@@ -258,11 +288,11 @@
     }
 
     .form {
-        padding: 1.5rem;
+        padding: 2rem;
     }
 
     .info {
-        padding: 1.5rem;
+        padding: 2rem;
     }
 
     .container h2 {
