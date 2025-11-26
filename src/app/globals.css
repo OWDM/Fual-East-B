@@ -1,28 +1,50 @@
 :root {
-  /* Corporate Palette */
-  --primary: #050505;
+  /* Modern Corporate Palette */
+  --primary: #09090b;
+  /* Zinc 950 - Neutral Black */
   --primary-light: #27272a;
-  --accent: #E64E50;
-  --accent-hover: #cf4547;
-  --background: #f8fafc;
+  /* Zinc 800 - Neutral Dark Gray */
+  --accent: #CC5955;
+  /* Brand Orange/Red */
+  --accent-hover: #b84a46;
+  /* Darker shade */
+  --accent-gradient: linear-gradient(135deg, #CC5955 0%, #e86a66 100%);
+  /* Brand Gradient */
+
+  --background: #ffffff;
+  --surface: #f8fafc;
   /* Slate 50 */
-  --surface: #ffffff;
-  --text-main: #050505;
+  --surface-hover: #f1f5f9;
+  /* Slate 100 */
+
+  --text-main: #0f172a;
   --text-secondary: #64748b;
   /* Slate 500 */
+  --text-light: #94a3b8;
+  /* Slate 400 */
+
   --border: #e2e8f0;
   /* Slate 200 */
 
   --font-main: var(--font-dm-sans), sans-serif;
+  --font-mono: var(--font-ibm-mono), monospace;
+
   --max-width: 1280px;
-  --radius: 8px;
+  --radius: 12px;
+  --radius-lg: 24px;
+
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
 
 [dir="rtl"] {
   --font-main: var(--font-noto-sans), sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 * {
@@ -37,6 +59,7 @@ body {
   padding: 0;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 h1,
@@ -45,9 +68,10 @@ h3,
 h4,
 h5,
 h6 {
-  line-height: 1.2;
+  line-height: 1.1;
   font-weight: 700;
   margin-top: 0;
+  letter-spacing: -0.02em;
 }
 
 a {
@@ -60,4 +84,19 @@ input,
 textarea,
 select {
   font-family: inherit;
+}
+
+/* Utility Classes */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.text-gradient {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }

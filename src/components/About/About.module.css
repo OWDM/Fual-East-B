@@ -1,6 +1,24 @@
 .section {
     padding: 8rem 0;
-    background-color: #f8fafc;
+    background-color: var(--surface);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Dot pattern background */
+.section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(var(--text-light) 1px, transparent 1px);
+    background-size: 32px 32px;
+    opacity: 0.15;
+    z-index: 0;
+    mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
 }
 
 .container {
@@ -11,6 +29,8 @@
     grid-template-columns: 1fr 1fr;
     gap: 6rem;
     align-items: center;
+    position: relative;
+    z-index: 1;
 }
 
 .textColumn {
@@ -18,10 +38,11 @@
 }
 
 .textColumn h2 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     color: var(--primary);
     margin-bottom: 2rem;
     letter-spacing: -0.02em;
+    line-height: 1.1;
 }
 
 .description {
@@ -33,42 +54,80 @@
 .statsColumn {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    gap: 2rem;
 }
 
 .statItem {
     display: flex;
     flex-direction: column;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(8px);
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.statItem:hover {
+    transform: translateY(-8px);
+    background: #ffffff;
+    box-shadow: var(--shadow-xl);
+    border-color: rgba(204, 89, 85, 0.2);
 }
 
 .statNumber {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 800;
-    color: var(--accent);
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     line-height: 1;
     margin-bottom: 0.5rem;
-    font-family: var(--font-ibm-mono), monospace;
+    font-family: var(--font-mono), monospace;
 }
 
 .statLabel {
     color: var(--text-secondary);
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
 }
 
 @media (max-width: 900px) {
-    .container {
-        grid-template-columns: 1fr;
-        gap: 4rem;
-        text-align: center;
+    .section {
+        padding: 4rem 0;
     }
 
-    .textColumn {
+    .container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
         text-align: center;
+        padding: 0 1.5rem;
+    }
+
+    .textColumn h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .description {
+        font-size: 1rem;
     }
 
     .statsColumn {
-        gap: 2rem;
+        gap: 1.5rem;
         justify-items: center;
+    }
+
+    .statItem {
+        width: 100%;
+        align-items: center;
+        padding: 1.5rem;
+    }
+
+    .statNumber {
+        font-size: 2.5rem;
     }
 }

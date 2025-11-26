@@ -12,46 +12,69 @@
     pointer-events: auto;
     width: 100%;
     max-width: 900px;
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(12px);
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-radius: 100px;
     padding: 0.5rem 0.5rem 0.5rem 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 8px 30px -6px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.05),
+        0 10px 15px -3px rgba(0, 0, 0, 0.05),
+        0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+    border: 1px solid rgba(255, 255, 255, 0.6);
     position: relative;
+    transition: all 0.3s ease;
 }
 
 .logo {
     display: flex;
     align-items: center;
     text-decoration: none;
-    /* Remove padding/gap since image handles it */
 }
 
 .logoImage {
     object-fit: contain;
-    /* Adjust based on actual logo aspect ratio */
 }
 
 .links {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 2.5rem;
 }
 
 .links a {
     font-size: 0.95rem;
     font-weight: 500;
-    color: #64748b;
+    color: var(--text-secondary);
     text-decoration: none;
     transition: color 0.2s ease;
+    position: relative;
+}
+
+.links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(-50%);
+    border-radius: 2px;
+    opacity: 0;
+}
+
+.links a:hover::after {
+    width: 20px;
+    opacity: 1;
 }
 
 .links a:hover {
-    color: #0f172a;
+    color: var(--primary);
 }
 
 .switcherLink {
@@ -60,7 +83,7 @@
     font-family: inherit;
     font-size: 0.95rem;
     font-weight: 500;
-    color: #64748b;
+    color: var(--text-secondary);
     cursor: pointer;
     padding: 0;
     transition: color 0.2s ease;
@@ -68,39 +91,42 @@
 }
 
 .switcherLink:hover {
-    color: #0f172a;
+    color: var(--primary);
 }
 
 /* Contact Button (CTA) */
 .cta {
-    background-color: #000000 !important;
+    background-color: var(--primary) !important;
     color: #ffffff !important;
-    padding: 6px 6px 6px 20px !important;
+    padding: 6px 6px 6px 24px !important;
     border-radius: 100px;
     font-weight: 500;
     font-size: 0.95rem;
     display: flex;
     align-items: center;
     gap: 12px;
-    transition: background-color 0.2s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     text-decoration: none;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
 }
 
 .cta:hover {
-    background-color: #222222 !important;
+    background-color: var(--primary-light) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.25);
 }
 
 /* Fixed White Circle */
 .arrowIcon {
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
     background-color: #ffffff;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #000000;
-    font-size: 13.5px;
+    color: var(--primary);
+    font-size: 14px;
     overflow: hidden;
     position: relative;
 }
