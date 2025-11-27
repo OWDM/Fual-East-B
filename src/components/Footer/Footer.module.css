@@ -1,20 +1,45 @@
 .footer {
-    background-color: var(--primary);
+    background: linear-gradient(180deg,
+        var(--background) 0%,
+        var(--primary) 100%
+    );
     color: white;
-    padding: 5rem 0 2rem;
+    padding: 6rem 0 2rem;
     font-family: var(--font-main);
     position: relative;
     overflow: hidden;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+/* Decorative gradient line at top */
 .footer::before {
     content: '';
     position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
+    left: 10%;
+    width: 300px;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(212, 175, 55, 0.5) 50%,
+        transparent 100%
+    );
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+/* Subtle background accent */
+.footer::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle,
+        rgba(212, 175, 55, 0.03) 0%,
+        transparent 60%
+    );
+    pointer-events: none;
 }
 
 .container {
@@ -43,7 +68,7 @@
 }
 
 .socialLink {
-    color: var(--text-light);
+    color: rgba(255, 255, 255, 0.5);
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
@@ -51,13 +76,16 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .socialLink:hover {
-    color: white;
+    color: var(--primary);
     background: var(--accent);
-    transform: translateY(-2px);
+    border-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 16px rgba(212, 175, 55, 0.4);
 }
 
 .divider {
@@ -84,9 +112,9 @@
 }
 
 .links a {
-    color: var(--text-light);
+    color: rgba(255, 255, 255, 0.6);
     font-size: 0.95rem;
-    transition: color 0.2s ease;
+    transition: color 0.3s ease;
     text-decoration: none;
     position: relative;
 }
@@ -103,6 +131,7 @@
     width: 0;
     height: 1px;
     background: var(--accent);
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
     transition: width 0.3s ease;
 }
 

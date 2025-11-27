@@ -1,109 +1,176 @@
 .hero {
-    min-height: 90vh;
+    min-height: 100vh;
     background:
-        radial-gradient(circle at 15% 50%, rgba(204, 89, 85, 0.08), transparent 25%),
-        radial-gradient(circle at 85% 30%, rgba(232, 106, 102, 0.08), transparent 25%),
-        linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(184, 115, 51, 0.15), transparent 50%),
+        radial-gradient(circle at 85% 15%, rgba(212, 175, 55, 0.1), transparent 25%),
+        radial-gradient(circle at 10% 80%, rgba(139, 69, 19, 0.08), transparent 30%),
+        linear-gradient(155deg, #0a0a0b 0%, #1a1a1d 50%, #0f0f11 100%);
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0 2rem;
+    justify-content: flex-start;
+    padding: 0 4rem;
+    padding-top: 80px;
     position: relative;
     overflow: hidden;
 }
 
-/* Abstract shapes */
+/* Noise texture overlay for grit */
 .hero::before {
     content: '';
     position: absolute;
-    top: -10%;
-    right: -5%;
-    width: 600px;
-    height: 600px;
-    background: linear-gradient(135deg, rgba(204, 89, 85, 0.1) 0%, rgba(232, 106, 102, 0.05) 100%);
-    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-    filter: blur(60px);
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.5' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+    opacity: 0.4;
     z-index: 0;
-    animation: float 20s infinite alternate;
+    pointer-events: none;
 }
 
+/* Dramatic metallic light beam */
 .hero::after {
     content: '';
     position: absolute;
-    bottom: -10%;
-    left: -5%;
-    width: 500px;
-    height: 500px;
-    background: linear-gradient(135deg, rgba(232, 106, 102, 0.1) 0%, rgba(204, 89, 85, 0.05) 100%);
-    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-    filter: blur(60px);
+    top: -50%;
+    right: -10%;
+    width: 800px;
+    height: 1400px;
+    background: linear-gradient(
+        165deg,
+        rgba(212, 175, 55, 0.08) 0%,
+        rgba(184, 115, 51, 0.15) 30%,
+        transparent 60%
+    );
+    transform: rotate(-15deg);
     z-index: 0;
-    animation: float 15s infinite alternate-reverse;
+    animation: shimmer 12s ease-in-out infinite;
+    filter: blur(80px);
 }
 
-@keyframes float {
-    0% {
-        transform: translate(0, 0) rotate(0deg);
+@keyframes shimmer {
+    0%, 100% {
+        opacity: 0.3;
+        transform: rotate(-15deg) translateX(0);
     }
-
-    100% {
-        transform: translate(30px, 50px) rotate(10deg);
+    50% {
+        opacity: 0.6;
+        transform: rotate(-15deg) translateX(50px);
     }
 }
 
 .content {
-    max-width: 900px;
+    max-width: 1100px;
     position: relative;
     z-index: 1;
+    text-align: left;
 }
 
 .content h1 {
-    font-size: 5rem;
-    font-weight: 800;
-    margin-bottom: 1.5rem;
-    color: var(--primary);
-    letter-spacing: -0.03em;
-    line-height: 1.1;
-    background: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    padding-bottom: 0.2em;
-    /* Prevent descender clipping */
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 10vw, 7.5rem);
+    font-weight: 400;
+    margin-bottom: 2rem;
+    color: #ffffff;
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+    text-shadow:
+        0 0 80px rgba(212, 175, 55, 0.3),
+        0 4px 12px rgba(0, 0, 0, 0.8);
+    position: relative;
+    animation: titleReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+
+@keyframes titleReveal {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+        filter: blur(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+/* Metallic underline accent */
+.content h1::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+    width: 180px;
+    height: 3px;
+    background: linear-gradient(90deg,
+        rgba(212, 175, 55, 0.9) 0%,
+        rgba(184, 115, 51, 0.7) 50%,
+        transparent 100%
+    );
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+    animation: lineGrow 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s backwards;
+}
+
+@keyframes lineGrow {
+    from {
+        width: 0;
+        opacity: 0;
+    }
 }
 
 .content p {
-    font-size: 1.5rem;
-    margin-bottom: 3rem;
-    color: var(--text-secondary);
-    line-height: 1.6;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
+    font-size: 1.25rem;
+    margin-bottom: 0;
+    margin-top: 3rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.8;
+    max-width: 600px;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+    animation: subtitleReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s backwards;
+}
+
+@keyframes subtitleReveal {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @media (max-width: 768px) {
     .hero {
         padding: 0 1.5rem;
-        min-height: 70vh;
+        min-height: 100vh;
+        align-items: flex-start;
+        padding-top: 25vh;
+    }
+
+    .content {
+        text-align: left;
     }
 
     .content h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
+        font-size: clamp(2.5rem, 12vw, 4rem);
+        margin-bottom: 1.5rem;
+        line-height: 1;
+    }
+
+    .content h1::after {
+        width: 100px;
+        height: 2px;
     }
 
     .content p {
-        font-size: 1rem;
-        margin-bottom: 2rem;
+        font-size: 1.1rem;
+        margin-top: 2rem;
+        max-width: 100%;
     }
 
-    .hero::before,
     .hero::after {
-        width: 250px;
-        height: 250px;
-        filter: blur(40px);
-        opacity: 0.5;
+        width: 500px;
+        height: 900px;
+        right: -30%;
+        opacity: 0.4;
     }
 }

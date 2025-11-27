@@ -1,10 +1,12 @@
 .navbar {
-    position: sticky;
-    top: 1.5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     z-index: 1000;
     display: flex;
     justify-content: center;
-    padding: 0 1rem;
+    padding: 1rem;
     pointer-events: none;
 }
 
@@ -12,19 +14,19 @@
     pointer-events: auto;
     width: 100%;
     max-width: 900px;
-    background-color: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background-color: rgba(26, 26, 29, 0.6);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
     border-radius: 100px;
     padding: 0.5rem 0.5rem 0.5rem 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-shadow:
-        0 4px 6px -1px rgba(0, 0, 0, 0.05),
-        0 10px 15px -3px rgba(0, 0, 0, 0.05),
-        0 0 0 1px rgba(255, 255, 255, 0.5) inset;
-    border: 1px solid rgba(255, 255, 255, 0.6);
+        0 8px 32px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.05) inset,
+        0 0 40px rgba(212, 175, 55, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     position: relative;
     transition: all 0.3s ease;
 }
@@ -48,7 +50,7 @@
 .links a {
     font-size: 0.95rem;
     font-weight: 500;
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
     transition: color 0.2s ease;
     position: relative;
@@ -60,11 +62,11 @@
     bottom: -4px;
     left: 50%;
     width: 0;
-    height: 2px;
+    height: 1px;
     background: var(--accent);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     transform: translateX(-50%);
-    border-radius: 2px;
     opacity: 0;
 }
 
@@ -74,7 +76,7 @@
 }
 
 .links a:hover {
-    color: var(--primary);
+    color: rgba(255, 255, 255, 1);
 }
 
 .switcherLink {
@@ -83,7 +85,7 @@
     font-family: inherit;
     font-size: 0.95rem;
     font-weight: 500;
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.7);
     cursor: pointer;
     padding: 0;
     transition: color 0.2s ease;
@@ -91,41 +93,46 @@
 }
 
 .switcherLink:hover {
-    color: var(--primary);
+    color: rgba(255, 255, 255, 1);
 }
 
 /* Contact Button (CTA) */
 .cta {
-    background-color: var(--primary) !important;
-    color: #ffffff !important;
+    background: var(--accent-gradient) !important;
+    color: #0a0a0b !important;
     padding: 6px 6px 6px 24px !important;
     border-radius: 100px;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 0.95rem;
     display: flex;
     align-items: center;
     gap: 12px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     text-decoration: none;
-    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+    box-shadow:
+        0 4px 16px rgba(212, 175, 55, 0.3),
+        0 0 40px rgba(212, 175, 55, 0.2);
+    position: relative;
 }
 
 .cta:hover {
-    background-color: var(--primary-light) !important;
+    background: linear-gradient(135deg, #f0c952 0%, #cd7f32 100%) !important;
     transform: translateY(-1px);
-    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.25);
+    box-shadow:
+        0 8px 24px rgba(212, 175, 55, 0.4),
+        0 0 60px rgba(212, 175, 55, 0.3);
 }
 
-/* Fixed White Circle */
+/* Fixed Circle */
 .arrowIcon {
     width: 32px;
     height: 32px;
-    background-color: #ffffff;
+    background-color: rgba(10, 10, 11, 0.9);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--primary);
+    color: var(--accent);
     font-size: 14px;
     overflow: hidden;
     position: relative;
@@ -236,7 +243,7 @@
     .hamburgerLine {
         width: 24px;
         height: 2px;
-        background-color: #0f172a;
+        background-color: rgba(255, 255, 255, 0.9);
         border-radius: 2px;
         transition: all 0.3s ease;
     }
@@ -257,7 +264,7 @@
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
         border-bottom: none;
-        background-color: rgba(255, 255, 255, 0.95);
+        background-color: rgba(26, 26, 29, 0.95);
     }
 
     .mobileMenu {
@@ -267,8 +274,8 @@
         /* Account for border width */
         right: -1px;
         /* Account for border width */
-        background-color: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(12px);
+        background-color: rgba(26, 26, 29, 0.95);
+        backdrop-filter: blur(30px);
         border-radius: 0 0 24px 24px;
         padding: 0 1.5rem 1.5rem 1.5rem;
         display: flex;
@@ -279,8 +286,8 @@
         pointer-events: none;
         transform: translateY(-10px);
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.5);
+        box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.08);
         border-top: none;
     }
 
@@ -293,7 +300,7 @@
     .mobileLink {
         font-size: 1.1rem;
         font-weight: 500;
-        color: #64748b;
+        color: rgba(255, 255, 255, 0.7);
         text-decoration: none;
         transition: color 0.2s ease;
         width: 100%;
@@ -301,7 +308,7 @@
     }
 
     .mobileLink:hover {
-        color: #0f172a;
+        color: rgba(255, 255, 255, 1);
     }
 
     .mobileSwitcher {
@@ -312,12 +319,12 @@
 
     .mobileSwitcher button {
         font-size: 1.1rem !important;
-        color: #64748b !important;
+        color: rgba(255, 255, 255, 0.7) !important;
         font-weight: 500 !important;
     }
 
     .mobileSwitcher button:hover {
-        color: #0f172a !important;
+        color: rgba(255, 255, 255, 1) !important;
     }
 
     /* Show CTA in mobile menu */
