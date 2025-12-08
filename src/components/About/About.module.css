@@ -5,7 +5,7 @@
     overflow: hidden;
 }
 
-/* Dot pattern background */
+/* Dot pattern background  */
 .section::before {
     content: '';
     position: absolute;
